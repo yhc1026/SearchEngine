@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>未找到结果 - 代码仓库搜索引擎</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="page-header">
+    <div class="layout">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"></span>
+        仓库搜索
+      </a>
+      <form class="search-bar-compact" action="results.html" method="get" style="flex: 1; max-width: 480px;">
+        <div class="search-input-wrap">
+          <span class="icon" aria-hidden="true">🔍</span>
+          <input type="search" name="q" placeholder="搜索仓库、代码、文件…" value="xyzzz不存在的关键词" autocomplete="off">
+          <button type="submit" class="btn-search">搜索</button>
+        </div>
+      </form>
+    </div>
+  </header>
+
+  <div class="layout">
+    <section class="empty-state">
+      <div class="icon-large" aria-hidden="true">🔍</div>
+      <h2>未找到相关结果</h2>
+      <p class="query-display">「xyzzz不存在的关键词」</p>
+      <p class="hint">没有匹配的仓库、文件或代码片段，可以尝试下面方式缩小或调整搜索范围。</p>
+      <ul class="suggestions">
+        <li>检查关键词拼写是否正确</li>
+        <li>尝试更通用或更短的关键词</li>
+        <li>更换筛选条件（类型、语言、排序）</li>
+        <li>使用英文或中英文组合再试</li>
+      </ul>
+      <a href="index.html" class="back-search">返回重新搜索</a>
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搜索 - 代码仓库搜索引擎</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="page-header">
+    <div class="layout">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"></span>
+        仓库搜索
+      </a>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="layout">
+      <h1>搜索代码仓库、文件与片段</h1>
+      <p class="subtitle">支持模糊关键词，快速发现开源项目与代码示例</p>
+
+      <form class="search-form-hero" action="results.html" method="get">
+        <div class="search-input-wrap">
+          <span class="icon" aria-hidden="true">🔍</span>
+          <input
+            type="search"
+            name="q"
+            placeholder="搜索仓库、代码、文件…"
+            autocomplete="off"
+            autofocus
+          >
+          <button type="submit" class="btn-search">搜索</button>
+        </div>
+      </form>
+
+      <div class="quick-links">
+        <span class="label">热门搜索：</span>
+        <a href="results.html?q=vue+组件">vue 组件</a>
+        <a href="results.html?q=react+hooks">react hooks</a>
+        <a href="results.html?q=python+爬虫">python 爬虫</a>
+        <a href="results.html?q=typescript+工具">typescript 工具</a>
+        <a href="results.html?q=rust+web">rust web</a>
+      </div>
+      <div class="quick-links" style="margin-top: 12px;">
+        <span class="label">最近搜索：</span>
+        <a href="results.html?q=表格">表格</a>
+        <a href="results.html?q=axios">axios</a>
+        <a href="results.html?q=tailwind">tailwind</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

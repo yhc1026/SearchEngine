@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搜索结果 - 代码仓库搜索引擎</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="page-header">
+    <div class="layout">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"></span>
+        仓库搜索
+      </a>
+      <form class="search-bar-compact" action="results.html" method="get" style="flex: 1; max-width: 480px;">
+        <div class="search-input-wrap">
+          <span class="icon" aria-hidden="true">🔍</span>
+          <input type="search" name="q" placeholder="搜索仓库、代码、文件…" value="vue 组件" autocomplete="off">
+          <button type="submit" class="btn-search">搜索</button>
+        </div>
+      </form>
+    </div>
+  </header>
+
+  <div class="layout">
+    <div class="toolbar">
+      <span class="current-query">当前关键词：「vue 组件」</span>
+      <div class="filters">
+        <label>
+          <select name="type" aria-label="类型">
+            <option>全部类型</option>
+            <option>仓库</option>
+            <option>文件</option>
+            <option>代码</option>
+          </select>
+        </label>
+        <label>
+          <select name="lang" aria-label="语言">
+            <option>全部语言</option>
+            <option>JavaScript</option>
+            <option>TypeScript</option>
+            <option>Vue</option>
+          </select>
+        </label>
+        <label>
+          <select name="sort" aria-label="排序">
+            <option>最佳匹配</option>
+            <option>最多 Star</option>
+            <option>最近更新</option>
+          </select>
+        </label>
+        <label>
+          <select name="per_page" aria-label="每页条数">
+            <option>10 条/页</option>
+            <option>20 条/页</option>
+            <option>50 条/页</option>
+          </select>
+        </label>
+      </div>
+      <span class="result-count">共 128 条结果</span>
+    </div>
+
+    <div class="result-list">
+      <!-- 仓库卡片：带缩略图 -->
+      <a href="#" class="result-card">
+        <div class="thumb">
+          <img src="https://avatars.githubusercontent.com/u/6128107?s=160&v=4" alt="" width="80" height="80">
+        </div>
+        <div class="body">
+          <div class="title">
+            <span>vuejs / core</span>
+            <span class="type-badge">仓库</span>
+          </div>
+          <p class="desc">Vue 3 核心源码。包含响应式、编译器、运行时等模块，适合学习与二次开发。</p>
+          <div class="meta">
+            <span>⭐ 42.1k</span>
+            <span>🔀 7.6k</span>
+            <span>JavaScript</span>
+            <span>更新于 2 天前</span>
+          </div>
+          <div class="tags">
+            <span class="tag">vue</span>
+            <span class="tag">frontend</span>
+            <span class="tag">components</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 仓库卡片：无图用占位 -->
+      <a href="#" class="result-card">
+        <div class="thumb">
+          <span class="placeholder ico-repo"></span>
+        </div>
+        <div class="body">
+          <div class="title">
+            <span>element-plus / element-plus</span>
+            <span class="type-badge">仓库</span>
+          </div>
+          <p class="desc">基于 Vue 3 的组件库，提供表格、表单、弹窗等常用 UI 组件，支持按需引入。</p>
+          <div class="meta">
+            <span>⭐ 25.3k</span>
+            <span>🔀 4.2k</span>
+            <span>Vue</span>
+            <span>更新于 1 周前</span>
+          </div>
+          <div class="tags">
+            <span class="tag">vue3</span>
+            <span class="tag">components</span>
+            <span class="tag">ui</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 文件卡片：代码片段预览 -->
+      <a href="#" class="result-card code-snippet">
+        <div class="thumb">
+          <span class="placeholder ico-file"></span>
+        </div>
+        <div class="body">
+          <div class="title">
+            <span>src/components/DataTable.vue</span>
+            <span class="type-badge">文件</span>
+          </div>
+          <p class="desc">通用数据表格组件，支持排序、筛选、分页，可从 element-plus 按需引入。</p>
+          <div class="code-preview">
+            <span class="hl">&lt;template&gt;</span><br>
+            &nbsp;&nbsp;&lt;el-table :data="tableData"&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;el-table-column prop="name" label="名称" /&gt;
+          </div>
+          <div class="meta">
+            <span>vue</span>
+            <span>admin-pro / src/components</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 仓库卡片 -->
+      <a href="#" class="result-card">
+        <div class="thumb">
+          <span class="placeholder ico-repo"></span>
+        </div>
+        <div class="body">
+          <div class="title">
+            <span>vue-component / vue-antd-admin</span>
+            <span class="type-badge">仓库</span>
+          </div>
+          <p class="desc">Vue 3 + Ant Design Vue 后台模板，内置多种业务组件与权限方案。</p>
+          <div class="meta">
+            <span>⭐ 3.2k</span>
+            <span>🔀 890</span>
+            <span>Vue</span>
+            <span>更新于 3 天前</span>
+          </div>
+          <div class="tags">
+            <span class="tag">admin</span>
+            <span class="tag">ant-design-vue</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="result-card">
+        <div class="thumb">
+          <span class="placeholder ico-repo"></span>
+        </div>
+        <div class="body">
+          <div class="title">
+            <span>Vue 组件库最佳实践合集</span>
+            <span class="type-badge">仓库</span>
+          </div>
+          <p class="desc">收集常用 Vue 组件实现：表单、表格、树形、拖拽等，附带文档与示例。</p>
+          <div class="meta">
+            <span>⭐ 1.8k</span>
+            <span>TypeScript</span>
+            <span>更新于 5 天前</span>
+          </div>
+          <div class="tags">
+            <span class="tag">vue3</span>
+            <span class="tag">components</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="pagination-wrap">
+      <nav class="pagination" aria-label="分页">
+        <a href="results.html?q=vue+组件&page=1" aria-label="上一页">上一页</a>
+        <a href="results.html?q=vue+组件&page=1">1</a>
+        <span class="current" aria-current="page">2</span>
+        <a href="results.html?q=vue+组件&page=3">3</a>
+        <span class="ellipsis">…</span>
+        <a href="results.html?q=vue+组件&page=13">13</a>
+        <a href="results.html?q=vue+组件&page=3" aria-label="下一页">下一页</a>
+      </nav>
+      <span class="page-info">第 2 页，共 13 页，128 条结果</span>
+    </div>
+  </div>
+</body>
+</html>
