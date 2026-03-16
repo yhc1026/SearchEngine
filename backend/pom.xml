@@ -47,6 +47,12 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
+        <!-- Elasticsearch -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
+
         <!-- 连接池（Redis 使用 Lettuce，DB 使用 Hikari，可选显式引入） -->
         <dependency>
             <groupId>org.apache.commons</groupId>

@@ -7,6 +7,9 @@ spring:
   application:
     name: search-engine
 
+  elasticsearch:
+    uris: http://localhost:9200
+
   # 数据源（按需修改为实际库地址）
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
