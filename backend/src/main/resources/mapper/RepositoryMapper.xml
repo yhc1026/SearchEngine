@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.searchengine.mapper.RepositoryMapper">
+
+    <!-- 批量插入仓库（MyBatis 实现，降级用） -->
+    <insert id="batchInsert">
+        INSERT INTO repository (fullName, htmlUrl, readme, repositoryId)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.fullName}, #{item.htmlUrl}, #{item.readme}, #{item.repositoryId})
+        </foreach>
+    </insert>
+
+    <!-- 根据仓库名查询 -->
+    <select id="selectByFullName" resultType="com.searchengine.entity.Repository">
+        SELECT id, fullName, htmlUrl, readme, repositoryId
+        FROM repository
+        WHERE fullName = #{fullName}
+    </select>
+
+</mapper>
+

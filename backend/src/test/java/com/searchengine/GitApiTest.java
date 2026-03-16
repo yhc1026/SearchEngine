@@ -35,7 +35,7 @@ class GitApiTest {
 
     @Test
     void searchUserRepo() {
-        String keyword = "青苗";
+        String keyword = "apple";
         List<GiteeRepository> repos = giteeSearchController.searchRepositories(keyword);
         // 注意：Service 在无结果或异常时返回空列表，不会返回 null
         assertNotNull(repos, "返回列表不应为 null");
@@ -48,7 +48,7 @@ class GitApiTest {
 
     @Test
     void searchGroupRepo() {
-        String keyword = "aizuda";
+        String keyword = "SPHARX";
         List<GiteeRepository> repos= giteeSearchController.getOrgRepos(keyword);
         assertNotNull(repos, "返回列表不应为 null");
         System.out.println("查询到仓库数量：" + repos.size());

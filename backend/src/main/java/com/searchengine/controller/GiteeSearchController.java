@@ -3,10 +3,12 @@ package com.searchengine.controller;
 import com.searchengine.dto.gitee.GiteeReadme;
 import com.searchengine.dto.gitee.GiteeRepository;
 import com.searchengine.dto.gitee.GiteeUser;
-import com.searchengine.service.impl.GiteeOrgReposServiceImpl;
-import com.searchengine.service.impl.GiteeRepoReadmeServiceImpl;
-import com.searchengine.service.impl.GiteeRepositorySearchServiceImpl;
-import com.searchengine.service.impl.GiteeUserSearchServiceImpl;
+import com.searchengine.entity.Repository;
+import com.searchengine.service.GiteeOrgReposService;
+import com.searchengine.service.GiteeRepoReadmeService;
+import com.searchengine.service.GiteeRepositorySearchService;
+import com.searchengine.service.GiteeUserSearchService;
+import com.searchengine.service.RepositorySyncService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,10 +26,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class GiteeSearchController {
 
-    private final GiteeUserSearchServiceImpl giteeUserSearchService;
-    private final GiteeRepositorySearchServiceImpl giteeRepositorySearchService;
-    private final GiteeOrgReposServiceImpl giteeOrgReposService;
-    private final GiteeRepoReadmeServiceImpl giteeRepoReadmeService;
+    private final GiteeUserSearchService giteeUserSearchService;
+    private final GiteeRepositorySearchService giteeRepositorySearchService;
+    private final GiteeOrgReposService giteeOrgReposService;
+    private final GiteeRepoReadmeService giteeRepoReadmeService;
+    private final RepositorySyncService repositorySyncService;
 
     /**
      * 搜索用户
@@ -88,5 +91,17 @@ public class GiteeSearchController {
             @PathVariable("owner") String owner,
             @PathVariable("repo") String repo) {
         return giteeRepoReadmeService.getReadme(owner, repo);
+    }
+
+    /**
+     * 按用户名同步仓库：
+     * 1. 先按“用户”获取仓库；为空则按“组织”获取仓库；
+     * 2. 为每个仓库获取 README 并填充；
+     * 3. 单线程批量保存到 repository 表；
+     * 4. 返回最终保存的仓库列表。
+     */
+    @GetMapping("/repositories/syncSearch")
+    public List<Repository> syncRepositoriesByUsername(@RequestParam("username") String username) {
+        return repositorySyncService.syncByUsername(username);
     }
 }
